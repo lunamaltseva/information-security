@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[PHISHING SIMULATION] Log in to {{ brand }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <!-- Unmissable banner: this is a training exercise. -->
+  <div class="sim-banner" role="alert">
+    ⚠️ PHISHING SIMULATION — training exercise for a cybersecurity course.
+    This is NOT a real website. <strong>Do not enter a real username or password.</strong>
+  </div>
+
+  <main class="login-wrap">
+    <div class="card">
+      <div class="brand">
+        <span class="brand-mark">😊</span>
+        <span class="brand-name">{{ brand }}</span>
+      </div>
+      <p class="tagline">Where friends click.</p>
+
+      <form action="{{ url_for('login') }}" method="post" autocomplete="off">
+        <label for="username">Email or username</label>
+        <input type="text" id="username" name="username"
+               placeholder="you@example.com" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password"
+               placeholder="Use a FAKE password — this is a simulation" required>
+
+        <button type="submit" class="btn">Log in</button>
+
+        <a class="forgot" href="#">Forgot password?</a>
+      </form>
+
+      <div class="divider"><span>or</span></div>
+      <button class="btn btn-secondary" type="button" disabled>Create new account</button>
+    </div>
+
+    <p class="sim-footnote">
+      🎓 This page was built for <em>Lab 04 — Phishing Awareness</em>.
+      "{{ brand }}" is a fictional brand. Any credentials you submit are
+      logged locally to demonstrate how a phishing page captures data.
+    </p>
+  </main>
+
+</body>
+</html>

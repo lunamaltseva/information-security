@@ -1,0 +1,166 @@
+/* Lab 04 - Phishing Awareness Simulation styles.
+   Fictional brand "Friendzy". Training material only. */
+
+:root {
+  --brand: #6d5efc;
+  --brand-dark: #4b3fd6;
+  --ink: #1f2430;
+  --muted: #6b7280;
+  --card-bg: #ffffff;
+  --warn-bg: #ffd43b;
+  --warn-ink: #3a2d00;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--ink);
+  background: linear-gradient(135deg, #6d5efc 0%, #8f7bff 45%, #b39dff 100%);
+  min-height: 100vh;
+}
+
+/* --- Simulation warning banner (impossible to miss) --- */
+.sim-banner {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: repeating-linear-gradient(
+    45deg, var(--warn-bg), var(--warn-bg) 18px,
+    #ffe98a 18px, #ffe98a 36px);
+  color: var(--warn-ink);
+  text-align: center;
+  padding: 12px 16px;
+  font-size: 14px;
+  line-height: 1.4;
+  border-bottom: 3px solid var(--warn-ink);
+}
+.sim-banner strong { text-decoration: underline; }
+
+/* --- Layout --- */
+.login-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 16px;
+}
+
+.card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 18px 48px rgba(0,0,0,.22);
+  padding: 32px 28px;
+}
+.card-wide { max-width: 620px; }
+
+/* --- Brand --- */
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--brand-dark);
+}
+.brand-mark { font-size: 34px; }
+.tagline {
+  text-align: center;
+  color: var(--muted);
+  margin: 6px 0 26px;
+  font-size: 15px;
+}
+
+/* --- Form --- */
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 14px 0 6px;
+}
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d6d9e0;
+  border-radius: 10px;
+  font-size: 15px;
+}
+input:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(109,94,252,.2);
+}
+
+.btn {
+  display: inline-block;
+  width: 100%;
+  margin-top: 22px;
+  padding: 13px 16px;
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { background: var(--brand-dark); }
+.btn-secondary {
+  background: #eef0f6;
+  color: var(--brand-dark);
+  margin-top: 12px;
+}
+.btn-secondary:disabled { opacity: .7; cursor: not-allowed; }
+
+.forgot {
+  display: block;
+  text-align: center;
+  margin-top: 16px;
+  color: var(--brand-dark);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--muted);
+  margin: 22px 0 8px;
+  font-size: 13px;
+}
+.divider::before, .divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e2e5ec;
+}
+.divider span { padding: 0 12px; }
+
+.sim-footnote {
+  max-width: 380px;
+  color: #f0edff;
+  font-size: 12.5px;
+  text-align: center;
+  margin-top: 20px;
+  line-height: 1.5;
+}
+
+/* --- Awareness / debrief page --- */
+.reveal-title { margin: 4px 0 12px; font-size: 24px; color: var(--brand-dark); }
+.reveal-lead { color: var(--ink); line-height: 1.6; }
+h2 { font-size: 17px; margin: 22px 0 8px; color: var(--brand-dark); }
+.flags { margin: 0; padding-left: 20px; line-height: 1.7; }
+.flags code {
+  background: #f3f2ff;
+  padding: 1px 6px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.card-wide .btn { margin-top: 26px; }

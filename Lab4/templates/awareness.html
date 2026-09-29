@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[PHISHING SIMULATION] You've been phished — here's what to notice</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <div class="sim-banner" role="alert">
+    ⚠️ PHISHING SIMULATION — training exercise. No account was accessed.
+  </div>
+
+  <main class="login-wrap">
+    <div class="card card-wide">
+      <h1 class="reveal-title">🎣 Gotcha — this was a phishing simulation.</h1>
+      <p class="reveal-lead">
+        If this had been a real attack, the credentials you just typed would
+        now be in an attacker's hands. Because this is a lab, they were only
+        written to a local log file to show how capture works — and we hope
+        you used a fake password like the page asked.
+      </p>
+
+      <h2>Red flags you could have caught</h2>
+      <ul class="flags">
+        <li><strong>The URL wasn't the real site.</strong> A page served from
+          <code>127.0.0.1</code> (or a look-alike domain) is not {{ brand }}.
+          Always check the address bar before typing a password.</li>
+        <li><strong>An unexpected "urgent" prompt.</strong> Phishing lures push
+          you to act fast — "verify now", "your account will be locked".</li>
+        <li><strong>A generic greeting</strong> ("Dear user") instead of your name.</li>
+        <li><strong>No verified sender.</strong> The email that linked here
+          came from a look-alike address, not an official domain.</li>
+        <li><strong>The banner literally said "phishing simulation".</strong> 🙂</li>
+      </ul>
+
+      <h2>How to protect yourself</h2>
+      <ul class="flags">
+        <li>Navigate to sites yourself instead of clicking links in emails.</li>
+        <li>Use a password manager — it won't autofill on a look-alike domain.</li>
+        <li>Turn on multi-factor authentication (MFA) / passkeys.</li>
+        <li>Report suspicious messages to your IT/security team.</li>
+      </ul>
+
+      <a class="btn" href="{{ url_for('index') }}">← Back to the simulated login</a>
+    </div>
+  </main>
+
+</body>
+</html>

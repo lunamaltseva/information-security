@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>[PHISHING SIMULATION] Friendzy security notice</title>
+  <style>
+    @page { size: A4; margin: 18mm 16mm; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      color: #1f2430;
+      margin: 0;
+      background: #eef0f6;
+    }
+    .sim-banner {
+      background: repeating-linear-gradient(45deg,#ffd43b,#ffd43b 16px,#ffe98a 16px,#ffe98a 32px);
+      color: #3a2d00;
+      border: 2px solid #3a2d00;
+      text-align: center;
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 8px 10px;
+      margin-bottom: 14px;
+    }
+
+    /* --- The simulated lure email --- */
+    .email {
+      background: #fff;
+      border: 1px solid #d9dce4;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .email-head {
+      background: #6d5efc;
+      color: #fff;
+      padding: 20px 24px;
+      font-size: 22px;
+      font-weight: 800;
+    }
+    .email-meta {
+      padding: 12px 24px;
+      border-bottom: 1px solid #eceef3;
+      font-size: 12px;
+      color: #6b7280;
+      line-height: 1.6;
+    }
+    .email-meta .look-alike { color: #b4361a; font-weight: 700; }
+    .email-body { padding: 22px 24px; font-size: 14px; line-height: 1.65; }
+    .email-body h1 { font-size: 18px; margin: 0 0 12px; color: #b4361a; }
+    .cta {
+      display: inline-block;
+      margin: 18px 0 6px;
+      background: #6d5efc;
+      color: #fff !important;
+      text-decoration: none;
+      padding: 12px 26px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .fake-link { color: #6b7280; font-size: 12px; word-break: break-all; }
+    .email-foot {
+      padding: 14px 24px;
+      border-top: 1px solid #eceef3;
+      font-size: 11px;
+      color: #9aa0ac;
+    }
+
+    /* --- Teaching annotations --- */
+    .notes {
+      margin-top: 22px;
+      background: #fff;
+      border: 1px dashed #b4361a;
+      border-radius: 10px;
+      padding: 18px 22px;
+    }
+    .notes h2 { color: #b4361a; font-size: 15px; margin: 0 0 10px; }
+    .notes ol { margin: 0; padding-left: 20px; line-height: 1.7; font-size: 13px; }
+    .notes .tag {
+      display: inline-block;
+      background: #ffe3dc;
+      color: #b4361a;
+      border-radius: 5px;
+      padding: 0 6px;
+      font-weight: 700;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sim-banner">
+    ⚠️ PHISHING SIMULATION — sample lure email for a cybersecurity course.
+    Fictional brand. Not sent to anyone. Do not act on it.
+  </div>
+
+  <!-- ============ The simulated phishing email ============ -->
+  <div class="email">
+    <div class="email-head">😊 Friendzy</div>
+    <div class="email-meta">
+      <div><strong>From:</strong>
+        Friendzy Security
+        <span class="look-alike">&lt;security@friendzy-support-verify.com&gt;</span>
+        <!-- red flag #1: look-alike sender domain -->
+      </div>
+      <div><strong>To:</strong> undisclosed-recipients</div>
+      <div><strong>Subject:</strong> ⚠️ Unusual login detected — verify within 24 hours</div>
+    </div>
+    <div class="email-body">
+      <h1>We noticed a suspicious sign-in to your account</h1>
+      <p>Dear user,</p> <!-- red flag #2: generic greeting -->
+      <p>
+        Someone just tried to log in to your Friendzy account from a new device
+        in another country. For your protection we have temporarily limited your
+        account.
+      </p>
+      <p>
+        <strong>You must verify your identity within 24 hours</strong> or your
+        account will be permanently deleted. <!-- red flag #3: urgency + threat -->
+      </p>
+
+      <a class="cta" href="http://127.0.0.1:5000/">Verify my account now</a>
+      <p class="fake-link">
+        Link points to: http://friendzy-support-verify.com/login &nbsp;
+        (hover reveals it is NOT friendzy.com) <!-- red flag #4: mismatched link -->
+      </p>
+
+      <p>Thank you,<br>The Friendzy Security Team</p>
+    </div>
+    <div class="email-foot">
+      This is a fictional message created for training. Friendzy is not a real company.
+    </div>
+  </div>
+
+  <!-- ============ Teaching annotations ============ -->
+  <div class="notes">
+    <h2>🔍 Red flags in this email (for the debrief)</h2>
+    <ol>
+      <li><span class="tag">Sender</span> Look-alike domain
+        <em>friendzy-support-verify.com</em> instead of the real domain.</li>
+      <li><span class="tag">Greeting</span> "Dear user" — a real service uses your name.</li>
+      <li><span class="tag">Urgency</span> A 24-hour deadline and a threat to delete
+        your account pressure you into acting without thinking.</li>
+      <li><span class="tag">Link</span> The button text says "verify" but the URL
+        goes to an attacker-controlled look-alike, not the official site.</li>
+      <li><span class="tag">Channel</span> Legitimate providers ask you to log in by
+        typing the address yourself, not by clicking an email link.</li>
+    </ol>
+  </div>
+
+</body>
+</html>
